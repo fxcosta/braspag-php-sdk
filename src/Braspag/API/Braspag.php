@@ -3,8 +3,8 @@
 namespace Braspag\API;
 
 use Braspag\API\Request\CreateSaleRequest;
+use Braspag\API\Request\CreateOnBoardin;
 use Braspag\API\Request\QueryRecurrentPaymentRequest;
-use Braspag\API\Request\QuerySaleRequest;
 use Braspag\API\Request\TokenizeCardRequest;
 use Braspag\API\Request\UpdateSaleRequest;
 use Braspag\Authenticator;
