@@ -87,6 +87,13 @@ class Braspag
         return $createSaleRequest->execute($sale);
     }
 
+    public function createOnBoardin(Subordinate $subordinate)
+    {
+        $createSaleRequest = new CreateOnBoardin($this->authenticator, $this->environment, $this->isSplitCase);
+
+        return $createSaleRequest->execute($subordinate);
+    }
+
     /**
      * Query a Sale on Braspag by paymentId
      *

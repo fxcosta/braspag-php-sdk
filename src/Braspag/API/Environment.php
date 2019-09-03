@@ -12,6 +12,8 @@ class Environment implements \Braspag\Environment
 
     private $apiAuth;
 
+    private $apiOnBord;
+
     /**
      * The environment constructor.
      *
@@ -20,12 +22,13 @@ class Environment implements \Braspag\Environment
      * @param string $apiSplit
      * @param string $apiAuth
      */
-    private function __construct($apiCielo, $apiCieloQuery, $apiSplit, $apiAuth)
+    private function __construct($apiCielo, $apiCieloQuery, $apiSplit, $apiAuth, $apiOnBord)
     {
         $this->apiCielo = $apiCielo;
         $this->apiCieloQuery = $apiCieloQuery;
         $this->apiSplit = $apiSplit;
         $this->apiAuth = $apiAuth;
+        $this->apiOnBord = $apiOnBord;
     }
 
     /**
@@ -37,8 +40,9 @@ class Environment implements \Braspag\Environment
         $apiCieloQuery = 'https://apiquerysandbox.cieloecommerce.cielo.com.br/';
         $apiSplit = 'https://splitsandbox.braspag.com.br/';
         $apiAuth = 'https://authsandbox.braspag.com.br/';
+        $apiOnBord = 'https://splitonboardingsandbox.braspag.com.br/';
 
-        return new Environment($apiCielo, $apiCieloQuery, $apiSplit, $apiAuth);
+        return new Environment($apiCielo, $apiCieloQuery, $apiSplit, $apiAuth, $apiOnBord);
     }
 
     /**
@@ -50,8 +54,9 @@ class Environment implements \Braspag\Environment
         $apiCieloQuery = 'https://apiquery.cieloecommerce.cielo.com.br/';
         $apiSplit = 'https://split.braspag.com.br/';
         $apiAuth = 'https://auth.braspag.com.br/';
+        $apiOnBord = 'https://splitonboarding.braspag.com.br/';
 
-        return new Environment($apiCielo, $apiCieloQuery, $apiSplit, $apiAuth);
+        return new Environment($apiCielo, $apiCieloQuery, $apiSplit, $apiAuth, $apiOnBord);
     }
 
     /**

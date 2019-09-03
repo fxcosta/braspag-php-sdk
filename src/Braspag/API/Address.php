@@ -12,6 +12,7 @@ class Address implements BraspagSerializable
     private $state;
     private $country;
     private $district;
+    private $neighborhood;
 
     /**
      * @return array
@@ -34,6 +35,26 @@ class Address implements BraspagSerializable
         $this->state = isset($data->State) ? $data->State : null;
         $this->country = isset($data->Country) ? $data->Country : null;
         $this->district = isset($data->District) ? $data->District : null;
+        $this->neighborhood = isset($data->Neighborhood) ? $data->Neighborhood : null;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNeighborhood()
+    {
+        return $this->neighborhood;
+    }
+
+    /**
+     * @param $district
+     *
+     * @return $this
+     */
+    public function setNeighborhood($neighborhood)
+    {
+        $this->neighborhood = $neighborhood;
+        return $this;
     }
 
     /**
