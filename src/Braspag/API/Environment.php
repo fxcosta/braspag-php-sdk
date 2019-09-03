@@ -64,6 +64,16 @@ class Environment implements \Braspag\Environment
      *
      * @return string the Api URL
      */
+    public function getApiOnBord(): string
+    {
+        return $this->apiOnBord;
+    }
+
+    /**
+     * Gets the environment's Api Cielo URL
+     *
+     * @return string the Api URL
+     */
     public function getCieloApiUrl(): string
     {
         return $this->apiCielo;
