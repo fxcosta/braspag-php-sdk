@@ -137,6 +137,9 @@ abstract class AbstractRequest
 
         switch ($statusCode) {
             case 200:
+            case 202:
+                $unserialized = $this->unserialize($responseBody);
+                break;
             case 201:
                 $unserialized = $this->unserialize($responseBody);
                 break;
