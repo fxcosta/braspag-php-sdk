@@ -1,5 +1,5 @@
 {
-    "name": "logicssoftware/braspag-php-sdk",
+    "name": "fxcosta/braspag-php-sdk",
     "description" : "SDK de integração com a API de pagamentos da Braspag",
     "type" : "library",
     "keywords": ["sdk", "payment", "php", "marketplace", "split", "braspag", "cielo"],
@@ -14,6 +14,10 @@
         {
             "name": "Romeu Godoi",
             "email": "romeu.godoi@gmail.com"
+        },
+        {
+            "name": "Felix Costa",
+            "email": "fx3costa@gmail.com"
         }
     ],
     "autoload" : {
