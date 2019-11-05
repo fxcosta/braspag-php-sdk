@@ -142,7 +142,7 @@ abstract class AbstractRequest
                     
                 return $unserialized;
             case 201:
-                $unserialized = $this->unserialize($responseBody);
+                $unserialized = json_decode($responseBody);
                 break;
             case 400:
                 $exception = null;
