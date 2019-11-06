@@ -4,6 +4,7 @@ namespace Braspag\API\Request;
 
 use Braspag\API\Environment;
 use Braspag\Authenticator;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Class AbstractRequest
@@ -147,6 +148,8 @@ abstract class AbstractRequest
             case 400:
                 $exception = null;
                 $response = json_decode($responseBody);
+
+                Log::error($responseBody);
 
                 foreach ($response->Errors as $error) {
                     $braspagError = new BraspagError($error->Message, $statusCode);
