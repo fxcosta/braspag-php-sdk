@@ -161,14 +161,14 @@ class Authenticator
         switch ($statusCode) {
             case 200:
             case 201:
-                $unserialized = $this->unserialize($responseBody);
+                $unserialized = $this->json_decode($responseBody);
                 break;
             case 400:
                 $exception = null;
                 $response = json_decode($responseBody);
 
-                foreach ($response as $error) {
-                    $braspagError = new BraspagError($error->Message, $error->Code);
+                foreach ($response->Errors as $error) {
+                    $braspagError = new BraspagError($error->Message, $statusCode);
                     $exception = new BraspagRequestException('Request Error', $statusCode, $exception);
                     $exception->setBraspagError($braspagError);
                 }
