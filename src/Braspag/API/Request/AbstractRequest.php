@@ -148,8 +148,8 @@ abstract class AbstractRequest
                 $exception = null;
                 $response = json_decode($responseBody);
 
-                foreach ($response as $error) {
-                    $braspagError = new BraspagError($error->Message, $error->Code);
+                foreach ($response->Errors as $error) {
+                    $braspagError = new BraspagError($error->Message, $statusCode);
                     $exception = new BraspagRequestException('Request Error', $statusCode, $exception);
                     $exception->setBraspagError($braspagError);
                 }
