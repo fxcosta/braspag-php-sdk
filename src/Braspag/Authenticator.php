@@ -161,7 +161,7 @@ class Authenticator
         switch ($statusCode) {
             case 200:
             case 201:
-                $unserialized = $this->json_decode($responseBody);
+                $unserialized = json_decode($responseBody);
                 break;
             case 400:
                 $exception = null;
