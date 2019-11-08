@@ -147,25 +147,26 @@ abstract class AbstractRequest
                 break;
             case 400:
                 $exception = null;
-                $response = json_decode($responseBody);
+                
+                return json_decode($responseBody);
+                // $response = json_decode($responseBody);
+                // if (!isset($response->Erros)) {
+                //     foreach ($response as $error) {
+                //         $braspagError = new BraspagError($error->Message, $error->Code);
+                //         $exception = new BraspagRequestException('Request Error', $statusCode, $exception);
+                //         $exception->setBraspagError($braspagError);
+                //     }
 
-                if (!isset($response->Erros)) {
-                    foreach ($response as $error) {
-                        $braspagError = new BraspagError($error->Message, $error->Code);
-                        $exception = new BraspagRequestException('Request Error', $statusCode, $exception);
-                        $exception->setBraspagError($braspagError);
-                    }
+                //     throw $exception;
+                // }
 
-                    throw $exception;
-                }
+                // foreach ($response->Errors as $error) {
+                //     $braspagError = new BraspagError($error->Message, $statusCode);
+                //     $exception = new BraspagRequestException('Request Error', $statusCode, $exception);
+                //     $exception->setBraspagError($braspagError);
+                // }
 
-                foreach ($response->Errors as $error) {
-                    $braspagError = new BraspagError($error->Message, $statusCode);
-                    $exception = new BraspagRequestException('Request Error', $statusCode, $exception);
-                    $exception->setBraspagError($braspagError);
-                }
-
-                throw $exception;
+                // throw $exception;
             case 404:
                 throw new BraspagRequestException('Resource not found', 404, null);
             default:
