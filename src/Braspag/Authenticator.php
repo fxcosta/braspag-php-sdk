@@ -167,6 +167,16 @@ class Authenticator
                 $exception = null;
                 $response = json_decode($responseBody);
 
+                if (!isset($response->Erros)) {
+                    foreach ($response as $error) {
+                        $braspagError = new BraspagError($error->Message, $error->Code);
+                        $exception = new BraspagRequestException('Request Error', $statusCode, $exception);
+                        $exception->setBraspagError($braspagError);
+                    }
+
+                    throw $exception;
+                }
+
                 foreach ($response->Errors as $error) {
                     $braspagError = new BraspagError($error->Message, $statusCode);
                     $exception = new BraspagRequestException('Request Error', $statusCode, $exception);
