@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This is part of Braspag SDK PHP.
  *
@@ -69,14 +70,15 @@ class FraudAnalysis implements BraspagSerializable
         string $fingerPrint = null,
         int $totalOrderAmount = null,
         Cart $cart = null,
-        array $merchantDefinedFields = []
+        array $merchantDefinedFields = [],
+        string $ipAddress = null
     ) {
         $this->totalOrderAmount = $totalOrderAmount;
         $this->cart = $cart;
         $this->browser = [
             'CookiesAccepted' => false,
             'BrowserFingerPrint' => $fingerPrint,
-            'IpAddress' => isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '127.0.0.1',
+            'IpAddress' => is_null($ipAddress) ? $ipAddress : $_SERVER['REMOTE_ADDR']
         ];
         $this->merchantDefinedFields = [];
 
